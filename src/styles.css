@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 figure {
-  min-height: 200px;
+  /* min-height: 200px; */
   /* margin initialize for chrome */
   margin-block-start: initial;
   margin-block-end: initial;
@@ -17,64 +17,84 @@ figure {
   margin-top: 10px;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
-.masonry-container p {
-  text-align: center;
-  padding: 4px;
-  font-family: monospace;
-  background: #222;
-  color: #efefef;
+.card {
+  margin: 5px;
 }
-.title {
-  margin: 6px;
-}
-.title figure,
-.title .card {
+.card figure,
+.card > div {
   /* box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.15); */
   border-radius: 10px;
+  background-color: #fff;
+  padding: 20px;
   width: 100%;
   overflow: hidden;
   transition: 0.125s ease-in-out;
 }
-.title figure:hover,
-.title .card:hover {
+.card figure:hover,
+.card > div:hover {
   /* transform: scale(1.125); */
   cursor: pointer;
   background-color: #f2fafe;
 }
-.title .card {
-  border: 1px solid #bbb;
-}
-.title figure {
-  background-color: #1d2326;
-}
-.title figure img {
-  width: 100%;
-}
-.title figure figcaption {
-  text-align: center;
-  color: #fff;
-  padding: 8px;
-}
-.title figure:hover figcaption {
-  color: #1d2326;
-}
-.title .card {
-  padding: 6px;
+.card > div {
   margin-bottom: 6px;
 }
-.title .card p {
+.card figure img {
+  width: 100%;
+}
+.card figure figcaption {
+  color: #333;
+  margin-top: -4px;
+  padding-top: 20px;
+  font-size: 18px;
+}
+.card figure:hover figcaption {
+  color: #1d2326;
+}
+.card > div p {
   white-space: pre-line;
+}
+.card .title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 13px 0;
+}
+.card .contents {
+  font-size: 14px;
+  color: #333;
 }
 .masonry {
   width: 100%;
   margin: auto;
   position: relative;
+  min-height: 200px;
+  background-color: #f1f1f1;
   /* display: flex;
   flex-direction: row;
   justify-content: center;
   align-content: stretch;
   width: 100%;
   margin: auto; */
+}
+.masonry > .loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 30px;
+  border: 3px solid;
+  border-color: #0aadff #0aadff #0aadff transparent;
+  animation: 1s rotate infinite linear;
+}
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 .column {
   display: inline-block;
